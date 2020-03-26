@@ -15,6 +15,7 @@ namespace AllocationsServer
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseCloudFoundryHosting()
                 .AddCloudFoundry()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

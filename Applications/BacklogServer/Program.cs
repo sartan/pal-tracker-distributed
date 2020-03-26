@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Steeltoe.Discovery.Client;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using Steeltoe.Extensions.Logging;
 
@@ -15,6 +17,7 @@ namespace BacklogServer
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseCloudFoundryHosting()
                 .AddCloudFoundry()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
@@ -26,4 +29,5 @@ namespace BacklogServer
                     loggingBuilder.AddDynamicConsole();
                 });
     }
+    
 }

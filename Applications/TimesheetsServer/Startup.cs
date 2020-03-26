@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
+using Steeltoe.Common.Discovery;
+using Steeltoe.Discovery.Client;
 using Steeltoe.Management.CloudFoundry;
 using Timesheets.Data;
 
@@ -26,13 +28,16 @@ namespace TimesheetsServer
             services.AddCloudFoundryActuators(Configuration);
 
             services.AddControllers();
+            
+            services.AddDiscoveryClient(Configuration);
 
             services.AddDbContext<TimeEntryContext>(options => options.UseMySql(Configuration));
             services.AddScoped<ITimeEntryDataGateway, TimeEntryDataGateway>();
             
             services.AddSingleton<Timesheets.ProjectClient.IProjectClient>(sp =>
             {
-                var httpClient = new HttpClient
+                var handler = new DiscoveryHttpClientHandler(sp.GetService<IDiscoveryClient>());
+                var httpClient = new HttpClient(handler, false)
                 {
                     BaseAddress = new Uri(Configuration.GetValue<string>("REGISTRATION_SERVER_ENDPOINT"))
                 };
@@ -60,6 +65,8 @@ namespace TimesheetsServer
             {
                 endpoints.MapControllers();
             });
+            
+            app.UseDiscoveryClient();
         }
     }
 }

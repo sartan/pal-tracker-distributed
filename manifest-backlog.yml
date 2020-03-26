@@ -7,7 +7,6 @@ applications:
     routes:
       - route: backlog-pal-[initials].apps.evans.pal.pivotal.io
     path: Applications/BacklogServer/bin/Release/netcoreapp3.1/publish
-    env:
-      REGISTRATION_SERVER_ENDPOINT: https://registration-pal-[initials].apps.evans.pal.pivotal.io
     services:
       - tracker-backlog-database
+      - tracker-service-registry
