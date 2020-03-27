@@ -23,7 +23,8 @@
       "launchUrl": "api/values",
       "applicationUrl": "https://localhost:8883;http://localhost:8083",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DISABLE_AUTH": "true"
       }
     }
   }
