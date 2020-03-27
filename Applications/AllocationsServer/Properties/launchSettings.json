@@ -24,7 +24,6 @@
       "applicationUrl": "https://localhost:8881;http://localhost:8081",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "REGISTRATION_SERVER_ENDPOINT": "http://registration-service",
         "DISABLE_AUTH": "true"
       }
     }
