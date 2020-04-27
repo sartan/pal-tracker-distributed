@@ -29,7 +29,7 @@ namespace Users.Data
                     .AsNoTracking()
                     .Single(u => u.Id == id);
             }
-            catch (System.InvalidOperationException e)
+            catch (System.InvalidOperationException)
             {
                 return null;
             }
