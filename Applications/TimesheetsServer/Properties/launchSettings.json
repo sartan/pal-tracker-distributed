@@ -23,8 +23,7 @@
       "launchUrl": "api/values",
       "applicationUrl": "https://localhost:8884;http://localhost:8084",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "REGISTRATION_SERVER_ENDPOINT": "http://localhost:8083"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }
