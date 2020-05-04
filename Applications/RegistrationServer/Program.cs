@@ -5,7 +5,6 @@ using Steeltoe.Extensions.Configuration.CloudFoundry;
 using Steeltoe.Extensions.Logging;
 using Steeltoe.Common.Hosting;
 
-
 namespace RegistrationServer
 {
     public class Program

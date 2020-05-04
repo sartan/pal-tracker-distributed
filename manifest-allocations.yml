@@ -7,6 +7,9 @@ applications:
     routes:
       - route: allocations-pal-sartan.cfapps.io
     path: Applications/AllocationsServer/bin/Release/netcoreapp3.1/publish
+    env:
+        GRANT_TYPE: client_credentials
     services:
       - tracker-allocations-database
-      - tracker-service-registry    
+      - tracker-service-registry
+      - tracker-sso
